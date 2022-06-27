@@ -6,21 +6,21 @@ namespace ClassLibrary1
     {
         // testi    
         public bool Totuus { get; set; }
-        public DateTime StartLearninDate { get; set; }
-        public bool InProgress { get; set; }
-        public DateTime CompletionDate { get; set; }
+        public DateTime A { get; set; }
+        public DateTime B { get; set; }
+        public bool C { get; set; }
 
         public string Kiire()
         {
-            return $"Olet myöhässä!{(CompletionDate - StartLearninDate).TotalDays}";
+            return $"Olet myöhässä!{(A - B).TotalDays} päivää";
         }
         public string Aikataulussa()
         {
-            return $"Sinulla on vielä {(CompletionDate - StartLearninDate).TotalDays} päivää aikaa";
+            return $"Sinulla on vielä {(A - B).TotalDays} päivää aikaa";
         }
         public void Tarkistus()
         {
-            if (CompletionDate > DateTime.Today)
+            if (A> DateTime.Today)
             {
                 Totuus = true;
 
@@ -35,23 +35,23 @@ namespace ClassLibrary1
 
         public void Myohassa()
         {
-            if (InProgress == false)
+            if (C == false)
             {
-                if (CompletionDate <= DateTime.Today)
+                if (A <= DateTime.Today)
                 {
 
                     Console.WriteLine(Kiire());
 
                 }
-                if (CompletionDate > DateTime.Today)
+                if (A > DateTime.Today)
                 {
                     Console.WriteLine(Aikataulussa());
                 }
             }
-
-            if (InProgress == true)
+            //true ja false vöäärin päin. 
+            if (C == true)
             {
-                Console.WriteLine($"Opiskelusi kesti:{(CompletionDate - StartLearninDate).TotalDays} ");
+                Console.WriteLine($"Opiskelusi kesti:{(A - B).TotalDays} ");
             }
 
         }
